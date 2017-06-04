@@ -38,6 +38,7 @@ dependencies {
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
 
+    compile "com.facebook.fresco:fresco:$rootProject.fresco"
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
     compile "com.openxcplatform:library:$rootProject.openxc"
     compile "com.android.support.constraint:constraint-layout:$rootProject.constraintlayout"
