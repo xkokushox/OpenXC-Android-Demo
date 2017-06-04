@@ -13,7 +13,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="@dimen/appbar_header_height"
         android:background="@color/colorPrimary"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -45,17 +45,16 @@
                     android:src="@drawable/header" />
 
                 <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/imgPokemon"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:id="@+id/iv_vehicle"
+                    android:layout_width="@dimen/home_vehicle_size"
+                    android:layout_height="@dimen/home_vehicle_size"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:elevation="6dp"
                     android:scaleType="centerInside"
                     fresco:actualImageScaleType="centerInside"
-                    fresco:failureImageScaleType="centerCrop"
-                    fresco:roundAsCircle="true" />
+                    fresco:failureImageScaleType="centerCrop" />
 
             </RelativeLayout>
 
@@ -112,8 +111,9 @@
                         android:id="@+id/imgRowIcon"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_margin="@dimen/dimen_image_icon_margin"
                         android:layout_weight="3"
-                        android:scaleType="centerInside" />
+                        app:srcCompat="@drawable/ic_engine" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -122,6 +122,7 @@
                         android:orientation="vertical">
 
                         <android.support.v7.widget.AppCompatTextView
+                            style="@style/TextItemTitle"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -129,10 +130,11 @@
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/tv_fuel_level"
+                            style="@style/TextItemDescription"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="Fuel Level" />
+                            android:text="13" />
 
                     </LinearLayout>
 

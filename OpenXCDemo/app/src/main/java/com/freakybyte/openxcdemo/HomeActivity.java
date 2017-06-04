@@ -8,9 +8,11 @@ import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.openxc.VehicleManager;
 import com.openxc.measurements.EngineSpeed;
 import com.openxc.measurements.Measurement;
@@ -21,8 +23,12 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity {
     public static final String TAG = "HomeActivity";
 
+    @BindView(R.id.toolbar)
+    public Toolbar mToolbar;
     @BindView(R.id.tv_fuel_level)
     public AppCompatTextView mTvStatus;
+    @BindView(R.id.iv_vehicle)
+    public SimpleDraweeView mIvVehicle;
 
     private VehicleManager mVehicleManager;
 
@@ -32,6 +38,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(getString(R.string.app_name));
+
+        mIvVehicle.setImageURI("http://instillsolutions.com/watertownford/leasespecials/transitconnect.jpg");
 
     }
 
