@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">OpenXC Demo</string>
 
-    <string name="home_rpm">Engine speed (RPM):</string>
+    <string name="home_rpm">Engine speed:</string>
+    <string name="home_fuel_level">Fuel Level:</string>
+    <string name="home_vehicle_speed">Vehicle Speed:</string>
+    <string name="home_door_open">Door Status:</string>
 </resources>

@@ -108,7 +108,6 @@
                     android:weightSum="10">
 
                     <android.support.v7.widget.AppCompatImageView
-                        android:id="@+id/imgRowIcon"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/dimen_image_icon_margin"
@@ -129,12 +128,174 @@
                             android:text="@string/home_rpm" />
 
                         <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_rpm"
+                            style="@style/TextItemDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="true">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/dimen_image_icon_margin"
+                        android:layout_weight="3"
+                        app:srcCompat="@drawable/ic_gasoline_pump" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            style="@style/TextItemTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/home_fuel_level" />
+
+                        <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/tv_fuel_level"
                             style="@style/TextItemDescription"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="true">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/dimen_image_icon_margin"
+                        android:layout_weight="3"
+                        app:srcCompat="@drawable/ic_tachometer" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            style="@style/TextItemTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="13" />
+                            android:text="@string/home_vehicle_speed" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_vehicle_speed"
+                            style="@style/TextItemDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="2dp"
+                card_view:cardUseCompatPadding="true">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/dimen_image_icon_margin"
+                        android:layout_weight="3"
+                        app:srcCompat="@drawable/ic_car_door" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            style="@style/TextItemTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/home_door_open" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/tv_car_door"
+                            style="@style/TextItemDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="Close"/>
 
                     </LinearLayout>
 

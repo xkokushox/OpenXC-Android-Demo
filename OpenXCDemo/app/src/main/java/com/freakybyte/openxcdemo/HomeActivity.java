@@ -15,7 +15,10 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.openxc.VehicleManager;
 import com.openxc.measurements.EngineSpeed;
+import com.openxc.measurements.FuelLevel;
 import com.openxc.measurements.Measurement;
+import com.openxc.measurements.VehicleDoorStatus;
+import com.openxc.measurements.VehicleSpeed;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,8 +28,14 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     public Toolbar mToolbar;
+    @BindView(R.id.tv_rpm)
+    public AppCompatTextView mTvRmp;
     @BindView(R.id.tv_fuel_level)
-    public AppCompatTextView mTvStatus;
+    public AppCompatTextView mTvFuelLevel;
+    @BindView(R.id.tv_vehicle_speed)
+    public AppCompatTextView mTvVehicleSpeed;
+    @BindView(R.id.tv_car_door)
+    public AppCompatTextView mTvCarDoor;
     @BindView(R.id.iv_vehicle)
     public SimpleDraweeView mIvVehicle;
 
@@ -56,6 +65,12 @@ public class HomeActivity extends AppCompatActivity {
             // fashion.
             mVehicleManager.removeListener(EngineSpeed.class,
                     mSpeedListener);
+            mVehicleManager.removeListener(EngineSpeed.class,
+                    mFuelListener);
+            mVehicleManager.removeListener(EngineSpeed.class,
+                    mVehicleSpeed);
+            mVehicleManager.removeListener(EngineSpeed.class,
+                    mDoorStatus);
             unbindService(mConnection);
             mVehicleManager = null;
         }
@@ -79,7 +94,44 @@ public class HomeActivity extends AppCompatActivity {
             final EngineSpeed speed = (EngineSpeed) measurement;
             HomeActivity.this.runOnUiThread(new Runnable() {
                 public void run() {
-                    mTvStatus.setText(speed.getValue().doubleValue() + "");
+                    mTvRmp.setText(String.valueOf(speed.getValue().doubleValue()) +" RPM");
+                }
+            });
+        }
+    };
+
+    FuelLevel.Listener mFuelListener = new FuelLevel.Listener() {
+        @Override
+        public void receive(Measurement measurement) {
+            final FuelLevel fuel = (FuelLevel) measurement;
+            HomeActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    mTvFuelLevel.setText(String.valueOf(fuel.getValue().doubleValue()) + " %");
+                }
+            });
+        }
+    };
+
+    VehicleSpeed.Listener mVehicleSpeed = new VehicleSpeed.Listener() {
+        @Override
+        public void receive(Measurement measurement) {
+            final VehicleSpeed speed = (VehicleSpeed) measurement;
+            HomeActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    mTvVehicleSpeed.setText(String.valueOf(speed.getValue().doubleValue()) + " km/h");
+                }
+            });
+        }
+    };
+
+
+    VehicleDoorStatus.Listener mDoorStatus = new VehicleDoorStatus.Listener() {
+        @Override
+        public void receive(Measurement measurement) {
+            final VehicleDoorStatus status = (VehicleDoorStatus) measurement;
+            HomeActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    mTvCarDoor.setText(String.valueOf(status.getValue().getSerializedValue()) + "");
                 }
             });
         }
@@ -102,6 +154,9 @@ public class HomeActivity extends AppCompatActivity {
             // we request that the VehicleManager call its receive() method
             // whenever the EngineSpeed changes
             mVehicleManager.addListener(EngineSpeed.class, mSpeedListener);
+            mVehicleManager.addListener(FuelLevel.class, mFuelListener);
+            mVehicleManager.addListener(VehicleSpeed.class, mVehicleSpeed);
+            mVehicleManager.addListener(VehicleDoorStatus.class, mDoorStatus);
         }
 
         // Called when the connection with the service disconnects unexpectedly
