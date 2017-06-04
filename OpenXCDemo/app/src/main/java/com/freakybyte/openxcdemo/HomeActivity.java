@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -20,8 +21,8 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity {
     public static final String TAG = "HomeActivity";
 
-    @BindView(R.id.tv_status)
-    public TextView mTvStatus;
+    @BindView(R.id.tv_fuel_level)
+    public AppCompatTextView mTvStatus;
 
     private VehicleManager mVehicleManager;
 
@@ -68,10 +69,7 @@ public class HomeActivity extends AppCompatActivity {
             final EngineSpeed speed = (EngineSpeed) measurement;
             HomeActivity.this.runOnUiThread(new Runnable() {
                 public void run() {
-                    mTvStatus.setText("Engine speed (RPM): "
-                            + speed.getValue().doubleValue()
-                            + "\n" +
-                            mTvStatus.getText().toString());
+                    mTvStatus.setText(speed.getValue().doubleValue() + "");
                 }
             });
         }

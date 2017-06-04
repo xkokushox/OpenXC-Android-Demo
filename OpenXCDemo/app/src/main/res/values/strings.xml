@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OpenXC Demo</string>
+
+    <string name="home_rpm">Engine speed (RPM):</string>
 </resources>
